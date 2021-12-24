@@ -13,7 +13,7 @@ int main() {
     // Print a string literal saying "Hello, World." to stdout using printf.
     printf("Hello, World.\n");
     
-    // TODO: Write a line of code here that prints the contents of input_string to stdout.
-      printf("%s",input_string)
+      printf("%s",input_string);
+   // TODO: Write a line of code here that prints the contents of input_string to stdout.
     return 0;
 }
