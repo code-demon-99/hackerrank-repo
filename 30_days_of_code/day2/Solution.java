@@ -18,13 +18,12 @@ public class Solution {
     /* Declare second integer, double, and String variables. */
     int i2;
     double d2;
-    char temp ;
     String s2 = new String();
 
     /* Read and save an integer, double, and String to your variables. */
     i2 = scan.nextInt();
     d2 = scan.nextDouble();
-    scan.nextLine();
+    scan.nextLine();  // solves the buffer problem 
     s2 = scan.nextLine();
     // Note: If you have trouble reading the entire String, please go back and
     // review the Tutorial closely.
