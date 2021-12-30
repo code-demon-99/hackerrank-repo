@@ -1,15 +1,34 @@
-i = 4
-d = 4.0
-s = 'HackerRank '
-# Declare second integer, double, and String variables.
+#!/bin/python3
 
-# Read and save an integer, double, and String to your variables.
-i2 = int(input())
-d2=float(input())
-s2=input()
-# Print the sum of both integer variables on a new line.
-print("{}\n{:.1f}\n{}".format(i+i2,d+d2,s+s2))
-# Print the sum of the double variables on a new line.
+import math
+import os
+import random
+import re
+import sys
 
-# Concatenate and print the String variables on a new line
-# The 's' variable above should be printed first.
+#
+# Complete the 'solve' function below.
+#
+# The function accepts following parameters:
+#  1. DOUBLE meal_cost
+#  2. INTEGER tip_percent
+#  3. INTEGER tax_percent
+#
+
+def solve(meal_cost, tip_percent, tax_percent):
+    # Write your code here
+    result =  meal_cost + (tip_percent/100)*meal_cost +(tax_percent/100)*meal_cost
+    print(int(round(result)))
+    return result
+
+if __name__ == '__main__':
+    # base cost of meal
+    meal_cost = float(input().strip())  
+
+    # (the percentage of the meal price being added as tip)
+    tip_percent = int(input().strip()) 
+
+    # (the percentage of the meal price being added as tax)
+    tax_percent = int(input().strip()) 
+
+    solve(meal_cost, tip_percent, tax_percent)

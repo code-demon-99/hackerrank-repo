@@ -9,6 +9,13 @@
       "name": "Launch Solution",
       "request": "launch",
       "mainClass": "Solution",
+      "projectName": "hackerrank-repo_fd5e115"
+    },
+    {
+      "type": "java",
+      "name": "Launch Solution",
+      "request": "launch",
+      "mainClass": "Solution",
       "projectName": "hackerrank-repo_1c6ed696"
     }
   ]

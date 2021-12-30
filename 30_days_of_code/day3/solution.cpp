@@ -1,32 +1,66 @@
-#include <iostream>
-#include <iomanip>
-#include <limits>
+#include <bits/stdc++.h>
 
 using namespace std;
 
+string ltrim(const string &);
+string rtrim(const string &);
+
+/*
+ * Complete the 'solve' function below.
+ *
+ * The function accepts following parameters:
+ *  1. DOUBLE meal_cost
+ *  2. INTEGER tip_percent100
+ *  3. INTEGER tax_percent
+ */
+
+void solve(double meal_cost, int tip_percent, int tax_percent)
+{
+    int result = meal_cost +( tip_percent*meal_cost )/100+ (tax_percent*meal_cost)/100;
+    cout<<round(result);
+
+}
+
 int main()
 {
-    int i = 4;
-    double d = 4.0;
-    string s = "HackerRank ";
+    string meal_cost_temp;
+    getline(cin, meal_cost_temp);
 
-    // Declare second integer, double, and String variables.
-    int i2;
-    double d2;
-    string s2;
-    // Read and save an integer, double, and String to your variables
-    cin >> i2 >> d2;
-    getline(cin >> ws, s2);
-    // Note: If you have trouble reading the entire string, please go back and review the Tutorial closely.
-    cout << fixed << setprecision(1) << i + i2 << "\n"
-         << d + d2 << "\n"
-         << s << s2;
-    // Print the sum of both integer variables on a new line.
+    double meal_cost = stod(ltrim(rtrim(meal_cost_temp)));
 
-    // Print the sum of the double variables on a new line.
+    string tip_percent_temp;
+    getline(cin, tip_percent_temp);
 
-    // Concatenate and print the String variables on a new line
-    // The 's' variable above should be printed first.
+    int tip_percent = stoi(ltrim(rtrim(tip_percent_temp)));
+
+    string tax_percent_temp;
+    getline(cin, tax_percent_temp);
+
+    int tax_percent = stoi(ltrim(rtrim(tax_percent_temp)));
+
+    solve(meal_cost, tip_percent, tax_percent);
 
     return 0;
+}
+
+string ltrim(const string &str)
+{
+    string s(str);
+
+    s.erase(
+        s.begin(),
+        find_if(s.begin(), s.end(), not1(ptr_fun<int, int>(isspace))));
+
+    return s;
+}
+
+string rtrim(const string &str)
+{
+    string s(str);
+
+    s.erase(
+        find_if(s.rbegin(), s.rend(), not1(ptr_fun<int, int>(isspace))).base(),
+        s.end());
+
+    return s;
 }

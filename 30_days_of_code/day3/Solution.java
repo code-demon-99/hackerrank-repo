@@ -1,46 +1,48 @@
 import java.io.*;
-import java.util.*;
-import java.text.*;
 import java.math.*;
+import java.security.*;
+import java.text.*;
+import java.util.*;
+import java.util.concurrent.*;
+import java.util.function.*;
 import java.util.regex.*;
+import java.util.stream.*;
+import static java.util.stream.Collectors.joining;
+import static java.util.stream.Collectors.toList;
 
-import javax.sound.midi.Soundbank;
-
-public class Solution {
-
-  public static void main(String[] args) {
-    int i = 4;
-    double d = 4.0;
-    String s = "HackerRank ";
-
-    Scanner scan = new Scanner(System.in);
-
-    /* Declare second integer, double, and String variables. */
-    int i2;
-    double d2;
-    char temp ;
-    String s2 = new String();
-
-    /* Read and save an integer, double, and String to your variables. */
-    i2 = scan.nextInt();
-    d2 = scan.nextDouble();
-    scan.nextLine();
-    s2 = scan.nextLine();
-    // Note: If you have trouble reading the entire String, please go back and
-    // review the Tutorial closely.
-
-    /* Print the sum of both integer variables on a new line. */
-    System.out.println(i + i2);
-    System.out.println(String.format("%.1f", d + d2));
-    System.out.println(s + s2);
-
-    /* Print the sum of the double variables on a new line. */
+class Result {
 
     /*
-     * Concatenate and print the String variables on a new line;
-     * the 's' variable above should be printed first.
+     * Complete the 'solve' function below.
+     *
+     * The function accepts following parameters:
+     *  1. DOUBLE meal_cost
+     *  2. INTEGER tip_percent
+     *  3. INTEGER tax_percent
      */
 
-    scan.close();
-  }
+    public static void solve(double meal_cost, int tip_percent, int tax_percent) {
+     double tip =  (meal_cost * tip_percent ) / 100;
+     double tax = (meal_cost * tax_percent) / 100;
+      double result  = meal_cost + tip + tax;
+      System.out.println(Math.round(result));
+
+    }
+
+}
+
+public class Solution {
+    public static void main(String[] args) throws IOException {
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+
+        double meal_cost = Double.parseDouble(bufferedReader.readLine().trim());
+
+        int tip_percent = Integer.parseInt(bufferedReader.readLine().trim());
+
+        int tax_percent = Integer.parseInt(bufferedReader.readLine().trim());
+
+        Result.solve(meal_cost, tip_percent, tax_percent);
+
+        bufferedReader.close();
+    }
 }
